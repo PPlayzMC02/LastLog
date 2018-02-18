@@ -34,7 +34,8 @@ public class HelpScreen {
 
         public HelpScreen(LastLogPlugin plugin) {
                 this.plugin = plugin;
-                ConfigurationSection section = YamlConfiguration.loadConfiguration(plugin.getResource("help.yml"));
+                this.config = this.getConfig("help.yml");
+                #ConfigurationSection section = YamlConfiguration.loadConfiguration(plugin.getResource("help.yml"));
                 String message = section.getString("helpmessage");
                 Pattern pattern = Pattern.compile("`([0-9a-f])");
                 Matcher matcher = pattern.matcher(message);
