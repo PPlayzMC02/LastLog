@@ -35,10 +35,6 @@ public class HelpScreen {
         public HelpScreen(LastLogPlugin plugin) {
                 this.plugin = plugin;
                 Reader defConfigStream = new InputStreamReader(this.getResource("help.yml"), "UTF-8");
-                if (defConfigStream != null) {
-                    YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-                    customConfig.setDefaults(defConfig);
-                }
                 String message = section.getString("helpmessage");
                 Pattern pattern = Pattern.compile("`([0-9a-f])");
                 Matcher matcher = pattern.matcher(message);
