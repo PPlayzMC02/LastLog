@@ -26,7 +26,6 @@ import java.util.regex.Pattern;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 public class HelpScreen {
@@ -35,8 +34,7 @@ public class HelpScreen {
 
         public HelpScreen(LastLogPlugin plugin) {
                 this.plugin = plugin;
-                this.config = this.getConfig("help.yml");
-                /*ConfigurationSection section = YamlConfiguration.loadConfiguration(plugin.getResource("help.yml"));*/
+                ConfigurationSection section = YamlConfiguration.loadConfiguration(plugin.getResource("help.yml"));
                 String message = section.getString("helpmessage");
                 Pattern pattern = Pattern.compile("`([0-9a-f])");
                 Matcher matcher = pattern.matcher(message);
