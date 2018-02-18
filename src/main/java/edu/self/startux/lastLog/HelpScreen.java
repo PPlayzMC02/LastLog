@@ -34,7 +34,7 @@ public class HelpScreen {
 
         public HelpScreen(LastLogPlugin plugin) {
                 this.plugin = plugin;
-                Reader defConfigStream = new InputStreamReader(this.getResource("help.yml"), "UTF8");
+                Reader defConfigStream = new InputStreamReader(this.getResource("help.yml"), "UTF-8");
                 if (defConfigStream != null) {
                     YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
                     customConfig.setDefaults(defConfig);
